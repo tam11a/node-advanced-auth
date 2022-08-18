@@ -39,7 +39,7 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
 
 // Add Swagger UI to Home Page
-app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerJSDoc(swaggerOptions)));
+app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerJSDoc(swaggerOptions)));
 
 // Authentication 
 /**
