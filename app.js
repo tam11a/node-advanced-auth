@@ -18,20 +18,19 @@ const swaggerUi = require("swagger-ui-express");
 // swagger Options
 const swaggerOptions = {
   swaggerDefinition: {
-    // openapi: "3.0.0",
+    openapi: "3.0.0",
     info: {
       title: "Sample Authentication API",
-      version: "1.0.1",
+      version: "1.0.0",
       servers: [
         {
           url: "http://localhost:4000",
-          description: "Development Server",
         },
       ],
     },
   },
-  // ['.route/*.js']
-  apis: ["./route/*.js"],
+  // ['app.js', '.routes/*.js']
+  apis: ["app.js", "./routes/*.js"],
 };
 
 // Use Routes
@@ -41,6 +40,17 @@ app.use("/api/auth", require("./routes/auth"));
 
 // Add Swagger UI to Home Page
 app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerJSDoc(swaggerOptions)));
+
+// Authentication 
+/**
+ * @swagger
+ * components:
+ *  securitySchemes:
+ *    bearer:
+ *      type: http
+ *      scheme: bearer
+ *      bearerFormat: JWT
+ */
 
 // Middleware Error Handler
 app.use(errorHandler);
