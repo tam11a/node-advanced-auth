@@ -30,7 +30,7 @@ const swaggerOptions = {
     },
   },
   // ['app.js', '.routes/*.js']
-  apis: ["app.js", "./routes/*.js"],
+  apis: ["app.js", "./routes/*.js", "./model/*/*.js"],
 };
 
 // Use Routes

@@ -65,3 +65,32 @@ userSchema.methods.getSignedToken = function () {
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
+
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *   User:
+ *     type: object
+ *     required:
+ *        - userName
+ *        - fullName
+ *        - email
+ *        - password
+ *     properties:
+ *       userName:
+ *         type: string
+ *         unique: true 
+ *         maxLength: 11
+ *       fullName:
+ *         type: string
+ *         maxLength: 32
+ *       email:
+ *         type: string
+ *         pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+ *       avatarURL:
+ *         type: string
+ *       password:
+ *         type: string
+ *         minLength: 6
+ */
